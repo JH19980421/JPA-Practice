@@ -19,13 +19,11 @@ public class MemberRepositoryTest {
     MemberRepository memberRepository;
 
     @Test
-    @Transactional
+    @Transactional // EntityManager에서 수행하는 모든 로직은 트랜잭션 안에서 수행되야 한다.
     @Rollback(false)
     public void testMember() throws Exception {
         //given
-        Member member = new Member();
-        member.setUsername("memberA");
-
+        Member member = new Member("memberA");
         //when
         Long saveId = memberRepository.save(member);
         Member findMember = memberRepository.find(saveId);
