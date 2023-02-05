@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HelloController {
 
     @GetMapping("hello")
-    public String hello(Model model){ // Model을 통해 view에 값을 넘길 수 있다.
+    public String hello(Model model) { // Model을 통해 view에 값을 넘길 수 있다.
         model.addAttribute("data", "hello!!!"); // key = "data", value = "hello!!!"
 
         // thymeleaf에서 /resources/templates 폴더에 해당 뷰 네임의 html 파일을 자동으로 맵핑해준다.
