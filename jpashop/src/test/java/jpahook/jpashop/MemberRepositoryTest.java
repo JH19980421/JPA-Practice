@@ -1,6 +1,7 @@
 package jpahook.jpashop;
 
 import jpahook.jpashop.domain.Member;
+import jpahook.jpashop.repository.MemberRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,8 +25,8 @@ public class MemberRepositoryTest {
         //given
         Member member = new Member("memberA");
         //when
-        Long saveId = memberRepository.save(member);
-        Member findMember = memberRepository.find(saveId);
+        memberRepository.save(member);
+        Member findMember = memberRepository.findOne(member.getId());
 
         //then
         Assertions.assertThat(findMember.getId()).isEqualTo(member.getId());
